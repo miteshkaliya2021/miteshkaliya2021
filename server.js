@@ -12,12 +12,9 @@ const user = require("./controllers/User/user.controller");
 
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(
-    "mongodb+srv://mitesh:Password@123@cluster0.f8j0q.mongodb.net/Project1?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-    }
-  )
+  .connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+  })
   .then(() => {
     console.log("Successfully connected to the database");
   })
